@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Benedict Colin Yuwono · Robotics Portfolio</title>
+  <meta name="description" content="Projects aligned to ACS233 and ACS6502/231 briefs." />
+  <style>
+    :root{--bg:#10131a;--card:#151a23;--ink:#e9edf5;--muted:#a4adbd;--line:#242c3a;--accent:#6be3b2;--max:1000px}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial}
+    a{color:var(--ink);text-decoration:underline dotted} .container{width:min(92vw,var(--max));margin:0 auto}
+    header{padding:28px 0 12px;border-bottom:1px solid var(--line)}
+    .top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    h1{margin:0;font-size:clamp(1.6rem,2.5vw+1rem,2.3rem)} .sub{margin:.2rem 0 0;color:var(--muted)}
+    .links{display:flex;gap:12px;flex-wrap:wrap;font-size:.95rem} .links a{text-decoration:none;border-bottom:1px dashed #354059}
+    .links a:hover{color:var(--accent)} h2{margin:20px 0 10px;letter-spacing:.08em;text-transform:uppercase;font-size:1.05rem;color:#cbd5e1}
+    .grid{display:grid;gap:16px;grid-template-columns:1fr 1fr} @media (max-width:860px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+    .pad{padding:16px} .meta{color:var(--muted);font-size:.95rem;margin:.3rem 0 .6rem}
+    .bullets{margin:.35rem 0 .7rem 1.1rem} .section-note{color:var(--muted);font-size:.95rem}
+    .chips{display:flex;gap:8px;flex-wrap:wrap} .chip{padding:6px 10px;border:1px solid #2a3345;border-radius:999px;text-decoration:none;font-size:.92rem}
+    .chip:hover{border-color:var(--accent);color:var(--accent)}
+    .spec{display:grid;gap:10px;grid-template-columns:1fr 1fr} @media (max-width:700px){.spec{grid-template-columns:1fr}}
+    .k{color:#cbd5e1;font-weight:600}
+    footer{border-top:1px solid var(--line);padding:18px 0;color:var(--muted);text-align:center;font-size:.95rem}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container top">
+      <div>
+        <h1>Benedict Colin Yuwono</h1>
+        <p class="sub">Mechatronic & Robotic Engineering — project portfolio (ACS233 & ACS6502/231)</p>
+      </div>
+      <nav class="links">
+        <a href="mailto:colin2laguna@gmail.com">colin2laguna@gmail.com</a>
+        <span>·</span><a href="https://linkedin.com/in/benedictcolinyuwono" target="_blank" rel="noopener">LinkedIn</a>
+        <span>·</span><a href="https://github.com/benedictcolinyuwono" target="_blank" rel="noopener">GitHub</a>
+        <span>·</span><span>Sheffield, UK</span>
+      </nav>
+    </div>
+    <div class="container">
+      <p class="section-note">This page highlights deliverables and evidence against the official module briefs: ACS233 burglar-alarm (requirements→UML→OOP/Arduino + MATLAB face recognition) and ACS6502/231 Robot Challenge (checkpoints, autonomy, IK, budget, milestones). Links below point to code, videos, and documents.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- PROJECT 1: ACS233 -->
+    <section id="acs233">
+      <h2>Project · ACS233 Burglar Alarm with Facial Recognition</h2>
+      <div class="card">
+        <div class="pad">
+          <p class="meta">Arduino (OOP C++), MATLAB (face recognition & UI), sensors/actuators integration</p>
+
+          <div class="spec">
+            <div>
+              <p class="k">Scope & V-Model</p>
+              <ul class="bullets">
+                <li>Followed systems-engineering V-model: requirements → design (state/activity) → UML classes → OOP implementation → test.</li>
+                <li>Maintained traceability across documents and implementation (IDs referenced in commits/readme).</li>
+              </ul>
+            </div>
+            <div>
+              <p class="k">Core constraints implemented</p>
+              <ul class="bullets">
+                <li>PIN-controlled arming; status reporting to screen during execution.</li>
+                <li>Real hardware: PIR, magnetic switch, push button, buzzer, LEDs, solenoid lock; Arduino Mega 2560.</li>
+                <li>Webcam face recognition integrated via MATLAB with serial link to Arduino.</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="k">Evidence & Deliverables</p>
+          <ul class="bullets">
+            <li><strong>Requirements & Design (≤16 pages)</strong> — stakeholder analysis incl. ED&I, user/system requirements (F/NF) with IDs, UML state & activity diagrams, and traceability table.</li>
+            <li><strong>UML Class Diagram</strong> — classes/attributes/methods (+/−, types), multiplicities, relationships (incl. inheritance), cohesion/coupling noted; class–requirement traceability.</li>
+            <li><strong>OOP Implementation</strong> — classes in Arduino sketch; MATLAB handles UI/PIN entry/face recognition; serial protocol ties states to actuators.</li>
+            <li><strong>Testing</strong> — validates each requirement; notes for sensors’ debounce and PIR 8s high output behaviour.</li>
+          </ul>
+
+          <div class="chips">
+            <a class="chip" href="#" target="_blank" rel="noopener">GitHub Repo</a>
+            <a class="chip" href="#" target="_blank" rel="noopener">Demo Video</a>
+            <a class="chip" href="#" target="_blank" rel="noopener">Reqs & Design PDF</a>
+            <a class="chip" href="#" target="_blank" rel="noopener">UML Class Diagram</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="section-note">Designed to satisfy the ACS233 brief: three group assignments (Requirements & Design, UML Class Diagram, OOP Arduino implementation), specific sensor/actuator set, PIN control, on-screen status, and facial recognition integrated later. See the module constraints and marking focus for traceability and OOP. </p>
+    </section>
+
+    <!-- PROJECT 2: ACS6502/231 -->
+    <section id="acs231">
+      <h2>Project · ACS6502/231 Robot Challenge</h2>
+      <div class="card">
+        <div class="pad">
+          <p class="meta">Mobile manipulator for tunnel navigation + line/ink task + marker drop</p>
+
+          <div class="spec">
+            <div>
+              <p class="k">Challenge checkpoints covered</p>
+              <ul class="bullets">
+                <li>[1] start & move; [2] yaw rotate (optional); [3] remain in yellow zone to Right tunnel; [4] manipulation — draw line/leave ink on board; [5] pass Left tunnel; [6] halt; [7] drop marker; [8] Q&A readiness; [9] advanced mechanisms/control.</li>
+              </ul>
+            </div>
+            <div>
+              <p class="k">Compliance & design choices</p>
+              <ul class="bullets">
+                <li>Full autonomy during trials; untethered (battery powered); no PC/phone control.</li>
+                <li>Inverse kinematics used in arm control; no off-the-shelf chassis; parts built/assembled within budget.</li>
+                <li>Milestones tracked: design → electronics/control → first prototype → testing → demo.</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="k">Evidence & Deliverables</p>
+          <ul class="bullets">
+            <li>CAD overview and workspace/DOF notes; stability/CoM checks; fabrication log.</li>
+            <li>Electronics schematic & bill of materials (within per-member budget); battery selection rationale.</li>
+            <li>Control stack (navigation + manipulation), parameters, and IK notes; test videos.</li>
+          </ul>
+
+          <div class="chips">
+            <a class="chip" href="#" target="_blank" rel="noopener">Robot Repo</a>
+            <a class="chip" href="#" target="_blank" rel="noopener">Arena Demo Video</a>
+            <a class="chip" href="#" target="_blank" rel="noopener">Final Report (3-page)</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="section-note">Built to the RC rules (autonomy, inverse kinematics, battery power, checkpoints scoring, and report format) with progress milestones from design to demo.</p>
+    </section>
+
+    <!-- LIGHTWEIGHT SECTIONS -->
+    <section id="skills">
+      <h2>Core Skills & Tools</h2>
+      <div class="grid">
+        <div class="card"><div class="pad">
+          <p class="k">Software & Control</p>
+          <ul class="bullets"><li>C/C++ (Arduino), Python, MATLAB</li><li>PID & kinematics; serial protocols</li><li>UML, systems engineering & traceability</li></ul>
+        </div></div>
+        <div class="card"><div class="pad">
+          <p class="k">Hardware</p>
+          <ul class="bullets"><li>Arduino Mega 2560, sensors/actuators</li><li>3D printing/laser cutting; wiring & soldering</li><li>Batteries, power & safety</li></ul>
+        </div></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:colin2laguna@gmail.com">colin2laguna@gmail.com</a> · LinkedIn: <a href="https://linkedin.com/in/benedictcolinyuwono" target="_blank" rel="noopener">/in/benedictcolinyuwono</a> · GitHub: <a href="https://github.com/benedictcolinyuwono" target="_blank" rel="noopener">@benedictcolinyuwono</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Benedict Colin Yuwono</p>
+  </footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
