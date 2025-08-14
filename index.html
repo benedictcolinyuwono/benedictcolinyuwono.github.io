@@ -2,242 +2,129 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Benedict Colin Yuwono · Robotics & Mechatronics Portfolio</title>
-  <meta name="description" content="Selected robotics & mechatronics projects by Benedict Colin Yuwono — end‑to‑end builds from CAD and wiring to firmware and control." />
-  <link rel="icon" href="assets/favicon.png" />
-  <meta property="og:title" content="Benedict Colin Yuwono · Robotics Portfolio" />
-  <meta property="og:description" content="Robotics & mechatronics projects with code, demos, design notes, and measured impact." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/og.jpg" />
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0f1116" />
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1116" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Benedict Colin Yuwono · Robotics Portfolio</title>
+  <meta name="description" content="Selected robotics & mechatronics projects by Benedict Colin Yuwono." />
+  <!-- Minimal built-in styling (edit freely) -->
   <style>
-    :root{
-      --bg:#0f1116;--card:#141a22;--ink:#e9edf4;--muted:#a9b1c0;--line:#212733;--accent:#67e2b6;--max:1040px;
-      --ink-inv:#0f1116;--bg-inv:#f7f9ff;--line-inv:#dfe6f3;--muted-inv:#475167
-    }
+    :root{--bg:#0f1116;--card:#141a22;--ink:#e9edf4;--muted:#a9b1c0;--line:#212733;--accent:#67e2b6;--max:1000px}
     *{box-sizing:border-box}
-    html:focus-within{scroll-behavior:smooth}
     body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial}
-    a{color:var(--ink);text-decoration:underline dotted;text-underline-offset:.2em}
-    a:hover{color:var(--accent)}
+    a{color:var(--ink);text-decoration:underline dotted}
     .wrap{width:min(92vw,var(--max));margin:0 auto}
-    header{padding:28px 0 18px;border-bottom:1px solid var(--line)}
+    header{padding:28px 0 12px;border-bottom:1px solid var(--line)}
     .row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-end}
     h1{margin:0;font-size:clamp(1.6rem,2.6vw + 1rem,2.4rem)}
     .tag{margin:.35rem 0 0;color:var(--muted)}
     .links{display:flex;gap:12px;flex-wrap:wrap;font-size:.95rem}
     .links a{text-decoration:none;border-bottom:1px dashed #364055}
     .links a:hover{color:var(--accent)}
+    h2{margin:22px 0 12px;letter-spacing:.08em;text-transform:uppercase;font-size:1.05rem;color:#cfe0f5}
     .lead{color:var(--muted);max-width:70ch}
-    .nav{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0 0}
-    .nav a{padding:6px 10px;border:1px solid #2b3344;border-radius:999px;text-decoration:none;font-size:.92rem}
-    .nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-    h2{margin:26px 0 14px;letter-spacing:.08em;text-transform:uppercase;font-size:1.05rem;color:#cfe0f5}
     .grid{display:grid;gap:16px;grid-template-columns:1fr 1fr}
     @media (max-width:880px){.grid{grid-template-columns:1fr}}
     .card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
     .thumb{aspect-ratio:16/9;width:100%;object-fit:cover;background:#0b0e13}
     .pad{padding:16px}
     .meta{color:var(--muted);font-size:.95rem;margin:.25rem 0 .6rem}
-    .stats{display:flex;gap:10px;flex-wrap:wrap;color:#cfe0f5;font-size:.9rem}
-    .stat{display:inline-flex;gap:6px;align-items:center;padding:4px 8px;border:1px solid #2b3344;border-radius:8px}
     ul{margin:.4rem 0 .6rem 1.15rem}
     .chips{display:flex;gap:8px;flex-wrap:wrap}
     .chip{padding:6px 10px;border:1px solid #2b3344;border-radius:999px;text-decoration:none;font-size:.92rem}
     .chip:hover{border-color:var(--accent);color:var(--accent)}
     .skills{display:flex;gap:8px;flex-wrap:wrap}
     .skill{padding:6px 10px;border-radius:999px;background:#192131;border:1px solid #2b3344;color:#dfe6f3;font-size:.93rem}
-    .cols{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
-    @media (max-width:880px){.cols{grid-template-columns:1fr}}
-    .note{color:var(--muted);font-size:.92rem}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     footer{border-top:1px solid var(--line);padding:18px 0;color:var(--muted);text-align:center;font-size:.95rem}
-    /* Light mode toggle */
-    .light body{background:var(--bg-inv);color:var(--ink-inv)}
-    .light .card{background:#fff;border-color:var(--line-inv)}
-    .light header, .light footer{border-color:var(--line-inv)}
-    .toggle{border:1px solid #2b3344;border-radius:999px;padding:6px 10px;background:transparent;color:inherit}
-    /* Print */
-    @media print{a{text-decoration:none} .chip,.nav,.toggle{display:none} header,footer,.card{break-inside:avoid}}
   </style>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Benedict Colin Yuwono",
-    "jobTitle":"Mechatronics/Robotics Engineer",
-    "url":"https://YOUR-DOMAIN.example",
-    "sameAs":["https://linkedin.com/in/benedictcolinyuwono","https://github.com/benedictcolinyuwono"],
-    "knowsAbout":["embedded systems","robotics","control systems","CAD","C/C++","Python","MATLAB"]
-  }
-  </script>
 </head>
 <body>
-  <a class="sr-only" href="#projects">Skip to projects</a>
   <header>
     <div class="wrap row">
       <div>
         <h1>Benedict Colin Yuwono</h1>
         <p class="tag">Mechatronic & Robotic Engineering — Project Portfolio</p>
-        <p class="lead">I build small robots and embedded systems—end‑to‑end—from CAD and wiring to firmware and control tuning. Below are selected projects with links to code, design notes, and demos.</p>
-        <nav class="nav" aria-label="Sections">
-          <a href="#projects">Projects</a>
-          <a href="#process">Design Process</a>
-          <a href="#writing">Technical Writing</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-        </nav>
       </div>
-      <div>
-        <nav class="links" aria-label="Profile links">
-          <a href="mailto:colin2laguna@gmail.com">colin2laguna@gmail.com</a>
-          <span aria-hidden>·</span><a href="https://linkedin.com/in/benedictcolinyuwono" target="_blank" rel="noopener">LinkedIn</a>
-          <span aria-hidden>·</span><a href="https://github.com/benedictcolinyuwono" target="_blank" rel="noopener">GitHub</a>
-          <span aria-hidden>·</span><span>Sheffield, UK</span>
-        </nav>
-        <div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end">
-          <button id="themeToggle" class="toggle" aria-pressed="false" aria-label="Toggle light/dark">Toggle Theme</button>
-          <a class="toggle" href="assets/Benedict_Yuwono_Resume.pdf" download>Download Résumé</a>
-        </div>
-      </div>
+      <nav class="links">
+        <a href="mailto:colin2laguna@gmail.com">colin2laguna@gmail.com</a>
+        <span>·</span><a href="https://linkedin.com/in/benedictcolinyuwono" target="_blank" rel="noopener">LinkedIn</a>
+        <span>·</span><a href="https://github.com/benedictcolinyuwono" target="_blank" rel="noopener">GitHub</a>
+        <span>·</span><span>Sheffield, UK</span>
+      </nav>
+    </div>
+    <div class="wrap">
+      <p class="lead">I build small robots and embedded systems—end-to-end—from CAD and wiring to firmware and control tuning. Below are selected projects with links to code and demos.</p>
     </div>
   </header>
 
-  <main class="wrap" id="main">
+  <main class="wrap">
     <!-- Projects -->
-    <section id="projects" aria-labelledby="projects-h">
-      <h2 id="projects-h">Featured Projects</h2>
+    <section id="projects">
+      <h2>Projects</h2>
       <div class="grid">
         <!-- Project 1 -->
-        <article class="card" aria-labelledby="p1-title">
-          <img class="thumb" src="assets/robot.jpg" alt="Autonomous line‑drawing mobile robot near a whiteboard" loading="lazy" />
+        <article class="card">
+          <img class="thumb" src="assets/robot.jpg" alt="Autonomous line-drawing robot (replace with your photo)" />
           <div class="pad">
-            <h3 id="p1-title">Autonomous Line‑Drawing Robot</h3>
-            <p class="meta">Arduino · Motor control · PID · IK · 4‑wheel mobile base</p>
-            <p>Mobile‑manipulator that follows a path, draws on a whiteboard, and completes the <em>Robot Challenge</em> checkpoints. Designed chassis, end‑effector, wiring and firmware; implemented inverse kinematics and trajectory control.</p>
+            <h3>Autonomous Line-Drawing Robot</h3>
+            <p class="meta">Arduino · Motor control · PID · Kinematics</p>
+            <p>4-wheel mobile robot that follows a path and uses a servo-actuated pen to draw straight lines.</p>
             <ul>
-              <li>IR sensor array + motor drivers; PID for trajectory tracking; servo‑actuated marker.</li>
-              <li>IK for vertical line placement; safety interlocks; untethered NiMH power.</li>
+              <li>IR sensors + motor drivers; PID for trajectory control</li>
+              <li>Inverse kinematics for arm positioning</li>
             </ul>
-            <div class="stats" aria-label="Outcomes">
-              <span class="stat" title="Milestones">✔️ Checkpoints [1]–[7] demoed</span>
-              <span class="stat" title="Budget">£200 team budget, on target</span>
-              <span class="stat" title="Iteration">10+ arena tests</span>
-            </div>
-            <div class="chips" style="margin-top:10px">
-              <a class="chip" href="#" target="_blank" rel="noopener">GitHub</a>
+            <div class="chips">
+              <a class="chip" href="#" target="_blank" rel="noopener">GitHub Repo</a>
               <a class="chip" href="#" target="_blank" rel="noopener">Demo Video</a>
-              <a class="chip" href="#" target="_blank" rel="noopener">Design Notes</a>
+              <a class="chip" href="#" target="_blank" rel="noopener">Write-up</a>
             </div>
           </div>
         </article>
 
         <!-- Project 2 -->
-        <article class="card" aria-labelledby="p2-title">
-          <img class="thumb" src="assets/alarm.jpg" alt="Burglar alarm prototype with sensors, LEDs and keypad" loading="lazy" />
+        <article class="card">
+          <img class="thumb" src="assets/alarm.jpg" alt="Burglar alarm with facial recognition (replace with your photo)" />
           <div class="pad">
-            <h3 id="p2-title">Burglar Alarm with Facial Recognition</h3>
-            <p class="meta">Arduino (C++) · MATLAB/Python (vision) · OOP · UART</p>
-            <p>PIN‑protected alarm system with PIR and magnetic sensors, buzzer, status LEDs, and door‑lock solenoid. Implemented modular OOP architecture on Arduino; used MATLAB/Python for face recognition and UI.</p>
+            <h3>Burglar Alarm with Facial Recognition</h3>
+            <p class="meta">Arduino · MATLAB · Sensors</p>
+            <p>Security system with keypad/PIN, buzzer, LEDs, and MATLAB face recognition for identity verification.</p>
             <ul>
-              <li>Class hierarchy for sensors/actuators; serial protocol for PC‑vision bridge.</li>
-              <li>Event logging; configurable delays; ED&I‑aware UI messaging.</li>
+              <li>Sensor fusion + thresholding; event logging</li>
+              <li>Modular classes for easy hardware swaps</li>
             </ul>
-            <div class="stats" aria-label="Outcomes">
-              <span class="stat">OOP design traced to UML</span>
-              <span class="stat">Real‑hardware demo</span>
-              <span class="stat">Facial ID integrated</span>
-            </div>
-            <div class="chips" style="margin-top:10px">
-              <a class="chip" href="#" target="_blank" rel="noopener">GitHub</a>
+            <div class="chips">
+              <a class="chip" href="#" target="_blank" rel="noopener">GitHub Repo</a>
               <a class="chip" href="#" target="_blank" rel="noopener">Demo Video</a>
               <a class="chip" href="#" target="_blank" rel="noopener">Design Doc / UML</a>
             </div>
           </div>
         </article>
       </div>
-      <p class="note">More builds on GitHub. Ask for full demos upon request.</p>
     </section>
 
-    <!-- Process -->
-    <section id="process" aria-labelledby="process-h">
-      <h2 id="process-h">Design Process</h2>
-      <div class="cols">
-        <div class="card pad">
-          <h3>From concept → tested prototype</h3>
-          <ul>
-            <li>Requirements and constraints → concept sketches → CAD.</li>
-            <li>Electronics bring‑up on breadboard → proto‑board; power budgeting.</li>
-            <li>Control architecture: state machine + PID/IK; safety interlocks.</li>
-            <li>Validation: arena tests; logs; iteration notes and lessons learned.</li>
-          </ul>
-        </div>
-        <div class="card pad">
-          <h3>Tooling</h3>
-          <div class="skills" aria-label="Tools and methods">
-            <span class="skill">C/C++ (Arduino)</span>
-            <span class="skill">Python</span>
-            <span class="skill">MATLAB</span>
-            <span class="skill">PID & Kinematics</span>
-            <span class="skill">SolidWorks/Fusion</span>
-            <span class="skill">Sensors & Actuators</span>
-            <span class="skill">Serial Protocols</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Technical Writing / Docs -->
-    <section id="writing" aria-labelledby="writing-h">
-      <h2 id="writing-h">Technical Writing & Docs</h2>
-      <div class="card pad">
-        <ul>
-          <li><a href="#" target="_blank" rel="noopener">Robot Challenge: final report (datasheet)</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Burglar alarm: requirements → UML → OOP implementation notes</a></li>
-        </ul>
-        <p class="note">Academic briefs available on request; proprietary or assessed materials are summarized.</p>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" aria-labelledby="skills-h">
-      <h2 id="skills-h">Skills</h2>
-      <div class="skills" role="list">
-        <span class="skill" role="listitem">C/C++ (Arduino)</span>
-        <span class="skill" role="listitem">Python</span>
-        <span class="skill" role="listitem">MATLAB</span>
-        <span class="skill" role="listitem">PID & Kinematics</span>
-        <span class="skill" role="listitem">SolidWorks</span>
-        <span class="skill" role="listitem">Sensors & Actuators</span>
-        <span class="skill" role="listitem">Serial Protocols</span>
+    <!-- Skills (compact) -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span class="skill">C/C++ (Arduino)</span>
+        <span class="skill">Python</span>
+        <span class="skill">MATLAB</span>
+        <span class="skill">PID & Kinematics</span>
+        <span class="skill">SolidWorks</span>
+        <span class="skill">Sensors & Actuators</span>
+        <span class="skill">Serial Protocols</span>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" aria-labelledby="contact-h">
-      <h2 id="contact-h">Contact</h2>
+    <section id="contact">
+      <h2>Contact</h2>
       <p>Email: <a href="mailto:colin2laguna@gmail.com">colin2laguna@gmail.com</a> · LinkedIn: <a href="https://linkedin.com/in/benedictcolinyuwono" target="_blank" rel="noopener">/in/benedictcolinyuwono</a> · GitHub: <a href="https://github.com/benedictcolinyuwono" target="_blank" rel="noopener">@benedictcolinyuwono</a></p>
     </section>
   </main>
 
   <footer>
-    <p>© <span id="year"></span> Benedict Colin Yuwono · <a href="#top">Back to top</a></p>
+    <p>© <span id="year"></span> Benedict Colin Yuwono</p>
   </footer>
 
-  <script>
-    // year
-    document.getElementById('year').textContent=new Date().getFullYear();
-    // theme toggle with localStorage
-    const root = document.documentElement;
-    const btn = document.getElementById('themeToggle');
-    const apply = m=>{root.classList.toggle('light',m==='light');btn.setAttribute('aria-pressed',m==='light')}
-    const saved = localStorage.getItem('theme');
-    apply(saved||'dark');
-    btn.addEventListener('click',()=>{const next=root.classList.contains('light')?'dark':'light';localStorage.setItem('theme',next);apply(next)});
-    // reduce-motion respect
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.style.scrollBehavior='auto'}
-  </script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
